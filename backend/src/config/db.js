@@ -25,7 +25,7 @@ export async function connectDb() {
     console.log('[db] connected');
   } catch (e) {
     lastError = 'Could not connect to MongoDB. Is it running and is MONGODB_URI correct?';
-    console.error('[db] connection failed:', e.name);
+    console.error('[db] connection failed:', e.name, e.message);
     clearTimeout(timer);
     timer = setTimeout(connectDb, 10000); // keep retrying in the background
   }
