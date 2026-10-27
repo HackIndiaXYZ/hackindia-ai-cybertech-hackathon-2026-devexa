@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { color-scheme: dark; }
+  body { @apply bg-ink-950 font-sans text-slate-200 antialiased; }
+  :focus-visible { @apply outline-none ring-2 ring-nova-cyan ring-offset-2 ring-offset-ink-950; }
+  ::selection { background: rgba(34, 211, 238, 0.3); }
+}
+
+@layer components {
+  .field { @apply w-full rounded-lg border border-ink-600 bg-ink-900 px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-500; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-nova-cyan text-ink-950 hover:bg-cyan-300; }
+  .btn-ghost { @apply btn border border-ink-600 text-slate-200 hover:bg-ink-700; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #0f1829 25%, #1a2a45 50%, #0f1829 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: 0.5rem;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
