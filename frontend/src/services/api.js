@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_URL || '/api';
+const BASE = (import.meta.env.VITE_API_URL || 'https://nova-devexa.onrender.com/api').replace(/\/$/, '');
 
 export class ApiError extends Error {
   constructor(code, message, status) {
